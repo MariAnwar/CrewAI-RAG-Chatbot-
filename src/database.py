@@ -35,9 +35,9 @@ def init_database():
     conn.commit()
     conn.close()
 
-# ==================================
-# === CLEANUP ORPHANED EMBEDDINGS AT STARTUP ===
-# ==================================
+
+# CLEANUP ORPHANED EMBEDDINGS AT STARTUP 
+
 def cleanup_orphaned_embeddings_on_startup():
     """
     Run orphaned data cleanup on app startup.
@@ -58,7 +58,7 @@ def cleanup_orphaned_embeddings_on_startup():
         print(f"\n Checking for orphaned data...")
         print(f" Active sessions in database: {len(active_sessions)}")
         
-        # Run cleanup (now cleans embeddings, images, AND documents)
+        # Run cleanup
         stats = cleanup_orphaned_data(active_sessions)
         
         total_deleted = stats['embeddings_deleted'] + stats['images_deleted'] + stats['documents_deleted']
@@ -254,4 +254,5 @@ class SessionManager:
         """, (title, datetime.now().isoformat(), session_id))
         
         conn.commit()
+
         conn.close()
