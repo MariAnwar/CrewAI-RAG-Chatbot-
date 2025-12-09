@@ -15,9 +15,9 @@ import fitz
 
 from utils.images import get_referenced_images
 
-# ============================================================================
+
 # Image Handler Wrapper 
-# ============================================================================
+
 class ImageHandler:
     """
     Wrapper to make utils.images.get_referenced_images work as an instance method.
@@ -87,9 +87,6 @@ def extract_pdf_images(pdf_path, session_id, base_dir):
 # ============================================================================
 # Configuration 
 # ============================================================================
-
-DEFAULT_HF_TOKEN = "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"
-DEFAULT_MODEL_NAME = "huggingface/Qwen/Qwen3-4B-Instruct-2507"
 
 try:
     load_dotenv()
@@ -650,4 +647,5 @@ def cleanup_orphaned_data(active_session_ids):
             'images_deleted': 0,
             'documents_deleted': 0,
             'errors': 1
+
         }
